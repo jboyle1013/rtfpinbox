@@ -12,18 +12,11 @@ This is the User Manual for the RTFPInbox Data Structure. At the time of writing
 
 ## RTFPInbox Data Structure Overview
 
-_Figure 1 RTFPINBOX Data Structure Block Diagram._
-
-This Data Structure was designed for the Use &amp; Abuse of Personal Information Study by members of the Raytheon Technologies Fellowship Program. ![](RackMultipart20211119-4-9ibr0o_html_25ba67fe7ab58fe8.png) ![Shape1](RackMultipart20211119-4-9ibr0o_html_5d5ff8cffc3d4cb3.gif)
+This Data Structure was designed for the Use &amp; Abuse of Personal Information Study by members of the Raytheon Technologies Fellowship Program. 
 
 ## Section 1: Inbox
 
-### ![Shape2](RackMultipart20211119-4-9ibr0o_html_136727cd5afb026b.gif)
-
-_Figure 2 The Inbox Object_
-
-O ![](RackMultipart20211119-4-9ibr0o_html_5e5f823cfe53a7fe.png)
- verview
+Overview
 
 Each object in this Structure represents one person&#39;s Inbox. The inbox will be known by a unique ID that will be assigned to it upon creation. This ID is the Primary Key for identifying the Inbox, and the User will note that it is identified as such in Figure 1. The Inbox contains the ID of the person it is associated with and their name, both as strings. It contains the Demographics of that person as a Demographics object, and a list of Email objects that makes up the contents of that person&#39;s inbox. It has 3 protected values, size, the number of emails in the inbox as an int, maxdate, the date of the last email received by the inbox, and mindate, the date of the first email received by the inbox. In order for this object to be created only the ID and the Name must be provided. The other values can be added after creation and the protected values are adjusted using the add or remove email methods. With the exception of the protected values, values in the Inbox Object can be accessed via the syntax:
 
@@ -137,7 +130,6 @@ With nameofinbox being the name of the inbox.
 
 ## Section 2: Demographics
 
-### ![Shape3](RackMultipart20211119-4-9ibr0o_html_8c559087729a251.gif)
  Overview
 
 This object contains the Demographic information of the owner of the Inbox. It contains their first and last name, their email address, phone number, gender, birthday, country and political affiliation as strings, the age as an integer, and the birthplace as a Birthplace object (See [Section 3: Birthplace](#_Section_3:_Birthplace)). All of these values are needed upon creation of this object and if any are unknown, they should be defined as None. With the exception of birthplace (See [Section 3: Birthplace](#_Section_3:_Birthplace)), values in the Demographics Object can be accessed via the syntax:
@@ -152,18 +144,6 @@ There are currently no methods for this object.
 
 ### Overview
 
-![Shape4](RackMultipart20211119-4-9ibr0o_html_4ef6f6403555828a.gif)
-
-_Figure 5 The US Birthplaces object_
-
- ![](RackMultipart20211119-4-9ibr0o_html_f8e7a36c0e97512.png)
-
-![Shape5](RackMultipart20211119-4-9ibr0o_html_2b0bb048e4efb6c4.gif)
-
-_Figure 5 The International Birthplaces object_
-
- ![](RackMultipart20211119-4-9ibr0o_html_3c1066a2b425da86.png)
-
 This object contains the Birthplace information for the Demographics object. It contains the city and the state, for US birthplaces, or the Country, for international birthplaces, where the owner of the inbox was born as strings. This object was created to make it easier for the user to access the values of the inbox owner&#39;s birthplace without having to parse strings. Values in the Birthplace Object can be accessed via the syntax:
 
 nameofinbox.demographics.birthplace.valuerequested
@@ -175,9 +155,5 @@ There are currently no methods for this object.
 ## Section 4: Email
 
 ### Overview
-
-![](RackMultipart20211119-4-9ibr0o_html_abb6467b509f0d8e.png)
-
-_Figure 6 The Email Object_
 
 Each object of the Email Structure represents one email. These emails will be stored in a list inside the Inbox object. The emails will be identified by their number in the list. This number is the Primary Key for the Email object. This object also contains the date it was sent as a date object, the sender as a Sentby object (See Section 7: Sentby), the subject of the email as a string, the email&#39;s headers, as a Headers object (See Section 6: Headers), and the content of the email as a Content object (See Section 5: Content)
